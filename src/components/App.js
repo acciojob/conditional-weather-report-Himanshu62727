@@ -1,45 +1,21 @@
-import React, { useState, useEffect } from "react";
-import './../styles/App.css';
+import { useState, useEffect } from "react";
+import WeatherDisplay from "./WeatherDisplay";
 
-const App = () => {
-
-  // Static weather data
-  const [weather] = useState({
+function App() {
+  const [weather, setWeather] = useState({
     temperature: 25,
-    conditions: "Sunny"
+    conditions: "Sunny",
   });
 
-  // Optional useEffect (requirement mentioned it)
   useEffect(() => {
-    console.log("Weather Loaded");
+    // Static data already set
   }, []);
-
-  const { temperature, conditions } = weather;
-
-  // Conditional styling
-  const tempStyle = {
-    color: temperature > 20 ? "red" : "blue"
-  };
 
   return (
     <div>
-      {/* Do not remove the main div */}
-
-      {/* Temperature */}
-      <p>
-        Temperature: 
-        <span style={tempStyle}>
-          {temperature}
-        </span>
-      </p>
-
-      {/* Conditions */}
-      <p>
-        Conditions: {conditions}
-      </p>
-
+      <WeatherDisplay weather={weather} />
     </div>
-  )
+  );
 }
 
 export default App;
