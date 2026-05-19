@@ -7,10 +7,6 @@ function App() {
     conditions: "Sunny",
   });
 
-  useEffect(() => {
-    // Static data already set
-  }, []);
-
   return (
     <div>
       <WeatherDisplay weather={weather} />
